@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Italianno";
+  src: url("/fonts/Italianno-Regular.woff2") format("woff2");
+  font-weight: 400; /* normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bentham";
+  src: url("/fonts/Bentham-Regular.woff2") format("woff2");
+  font-weight: 400; /* normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+h1, h2, h3, p {
+    font-family: "Italianno";
+}
+
+#icon {
+  font-family: "Bentham";
+}
+
