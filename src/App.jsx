@@ -1,7 +1,8 @@
-//import { useState } from "react";
+import { useState } from "react";
+import ConfirmarAsistencia from "./components/ConfirmarAsistencia.jsx";
 
 function App() {
-  //const [count, setCount] = useState(0);
+  const [mostrarCard, setMostrarCard] = useState(false);
 
   return (
     <>
@@ -78,32 +79,31 @@ function App() {
           <div className="flex justify-center gap-10 mt-20 sm:gap-30 sm:mt-20">
             <div className="flex flex-col items-center">
               <img className="w-8 mb-2 sm:w-15 sm:mb-2" src="/svg/envelope.svg" alt="Lluvia de sobres" />
-              <p id="icon" className="text-md sm:text-xl text-center leading-none">Lluvia de<br />Sobres</p>
+              <p className="!font-[Amiri] text-md sm:text-xl text-center leading-none">Lluvia de<br />Sobres</p>
             </div>
             <div className="flex flex-col items-center">
               <img className="w-8 mb-2 sm:w-15 sm:mb-2" src="/svg/movile.svg" alt="Lluvia de sobres" />
-              <p id="icon" className="text-md sm:text-xl text-center leading-none">Confirmar asistencia<br />Clic aquí!</p>
+              <p className="!font-[Amiri] text-md sm:text-xl text-center leading-none">Confirmar asistencia</p>
             </div>
             <div className="flex flex-col items-center">
               <img className="w-15 mb-2 sm:w-15 sm:mb-2" src="/svg/dress.svg" alt="Lluvia de sobres" />
-              <p id="icon" className="text-md sm:text-xl text-center leading-none">Vestimenta<br />Formal</p>
+              <p className="!font-[Amiri] text-md sm:text-xl text-center leading-none">Vestimenta<br />Formal</p>
             </div>
           </div>
-          <div className="flex justify-center h-auto mt-20">
+          <div className="flex justify-center h-auto mt-10 sm:mt-20">
             <div className="w-[800px] h-[190px] sm:h-[290px] relative flex items-center justify-center ">
               <h2 className="absolute top-15 text-[70px] sm:text-[110px] z-10 text-[#215D2C]">Te esperamos</h2>
               <img className="absolute -right-5 top-5 w-[270px] sm:right-0 sm:top-0 sm:w-[450px] opacity-30" src="/png/flowers7.png" alt="Flor" />
             </div>
           </div>
           <div className="flex justify-center mb-20 mt-10 sm:mb-50">
-            <p className="text-3xl sm:text-[55px] z-10">Por favor confirmar asistencia</p>
+            <ConfirmarAsistencia />
           </div>
           <div className="absolute w-[150px] left-0 bottom-0 sm:w-[320px] sm:left-0 sm:bottom-0">
             <img className="object-cover" src="/png/leaves5.png" />
           </div>
           <div className="absolute w-[200px] -right-10 -bottom-5 sm:w-[520px] sm:-right-30 sm:-bottom-25">
             <img className="object-cover" src="/png/flowers6.png" />
-
           </div>
         </div>
       </div>
