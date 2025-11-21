@@ -57,10 +57,10 @@ function App() {
           </div>
           <div className="flex justify-center h-auto mt-20 mb-5 sm:mb-0 sm:mt-10">
             <div className="w-[400px] h-[200px] sm:w-[800px] sm:h-[400px] relative flex items-center justify-center">
-              <h2 className="absolute text-[90px] sm:text-[160px] top-5 sm:top-15 z-10">29</h2>
-              <h3 className="absolute text-[30px] sm:text-[60px] bottom-13 sm:bottom-25 z-10">Agosto</h3>
-              <h3 className="absolute text-[30px] sm:text-[60px] left-10 sm:left-20 z-10">Viernes</h3>
-              <h3 className="absolute text-[30px] sm:text-[60px] right-10 sm:right-20 z-10">5:00 p.m.</h3>
+              <h2 className="absolute text-[90px] sm:text-[160px] top-5 sm:top-15 z-10">20</h2>
+              <h3 className="absolute text-[30px] sm:text-[60px] bottom-13 sm:bottom-25 z-10">Diciembre</h3>
+              <h3 className="absolute text-[30px] sm:text-[60px] left-10 sm:left-20 z-10">Sabado</h3>
+              <h3 className="absolute text-[30px] sm:text-[60px] right-10 sm:right-20 z-10">7:00 p.m.</h3>
               <img className="absolute -right-15 top-1/3 w-[170px] sm:w-[320px] scale-x-[-1]" src="/png/divider.png" />
               <img className="absolute -left-15 top-1/3 w-[170px] sm:w-[320px]" src="/png/divider.png" />
               <img className="absolute -right-15 bottom-1/3 w-[170px] sm:w-[320px] scale-x-[-1]" src="/png/divider.png" />
@@ -73,7 +73,7 @@ function App() {
             <div className="relative flex items-center justify-center">
               <img className="absolute w-[60px] -left-5 top-18 sm:w-[120px] sm:-left-40 sm:top-30 rotate-90" src="/png/leaves4.png" alt="Hojas" />
               <img className="absolute w-[60px] -right-8 -top-3 sm:w-[120px] sm:-right-30 sm:top-0" src="/png/butterfly4.png" alt="Mariposa" />
-              <p className="text-center text-4xl sm:text-[55px] my-10 leading-[0.8] sm:leading-none">Nos vemos en<br /> Los Jardines de la Casa de la Abuela</p>
+              <a href="https://maps.app.goo.gl/fN1JpNujNbnqCJQJ8" target="_blank" rel="noreferrer noopener" className="text-center text-4xl sm:text-[55px] my-10 leading-[0.8] sm:leading-none">Nos vemos en<br /> Club&nbsp; Xilon - Cra. 45 #18A-51<br /> Pasto, Nariño</a>
             </div>
           </div>
           <div className="flex justify-center gap-10 mt-20 sm:gap-30 sm:mt-20">
