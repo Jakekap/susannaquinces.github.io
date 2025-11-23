@@ -64,3 +64,6 @@ h1, h2, h3, p, a {
     0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
     0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
 }
+.custom_button:hover {
+  background-color: #f5f5f5;
+}

@@ -5,17 +5,28 @@ export default function Tarjeta({ onClose }) {
     const [cantidad, setCantidad] = useState(1);
     const [nombres, setNombres] = useState([""]);
 
+    const [maxInvitados, setMaxInvitados] = useState(5);
+
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
+
         const nombreParam = params.get("nombre");
         if (nombreParam) setNombrePrincipal(nombreParam);
+
+        const maxParam = parseInt(params.get("maxinvitados"));
+        if (!isNaN(maxParam) && maxParam > 0) {
+            setMaxInvitados(maxParam);
+            setCantidad(1);
+            setNombres([""]);
+        }
+
         document.body.style.overflow = "hidden";
         return () => {
             document.body.style.overflow = "auto";
         };
     }, []);
 
-    const numero = "573144439593";
+    const numero = "573144450651";
 
     const handleCantidadChange = (e) => {
         const nuevaCantidad = parseInt(e.target.value);
@@ -30,15 +41,9 @@ export default function Tarjeta({ onClose }) {
     };
 
     const generarMensaje = () => {
-        const lista = nombres.filter((n) => n.trim() !== "").join(", ") || "No especificado";
         const texto = `Por parte de la Flia. ${nombrePrincipal || "invitada"}
-
-Confirmo mi asistencia a los 15 años de Susanna ✨
-
-👥 En total, serémos: ${cantidad} personas
-📝 Nombres de los asistentes: ${lista}
-
-¡Gracias por la invitación! 💕`;
+        Confirmo mi asistencia a los 15 años de Susanna ✨
+        👥 En total, serémos: ${cantidad}`;
         return texto.replace(/\n/g, "%0A").replace(/ /g, "%20");
     };
 
@@ -47,9 +52,13 @@ Confirmo mi asistencia a los 15 años de Susanna ✨
             alert("Por favor completa todos los nombres antes de enviar 🙏");
             return;
         }
+
         const url = `https://wa.me/${numero}?text=${generarMensaje()}`;
         window.open(url, "_blank");
-        onClose();
+
+        setTimeout(() => {
+            onClose();
+        }, 0);
     };
 
     return (
@@ -58,7 +67,7 @@ Confirmo mi asistencia a los 15 años de Susanna ✨
 
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
+                    className="cursor-pointer absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl z-50"
                 >
                     ✕
                 </button>
@@ -68,22 +77,25 @@ Confirmo mi asistencia a los 15 años de Susanna ✨
                         ? `${nombrePrincipal}`
                         : "Invitada"}
                 </h2>
-                <div className="mt-7 text-left">
-                    <label className="block !font-[Amiri] text-[18px]">
-                        Seleccione el número de invitados que asistirán
-                    </label>
-                    <select
-                        value={cantidad}
-                        onChange={handleCantidadChange}
-                        className="relative z-10 !font-[Amiri] text-xl w-full border-2 border-[#DDDDDD] p-2 focus:outline-none"
-                    >
-                        {[1, 2, 3, 4, 5].map((num) => (
-                            <option key={num} value={num}>
-                                {num}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+                {maxInvitados > 1 && (
+                    <div className="mt-7 text-left">
+                        <label className="block !font-[Amiri] text-[18px]">
+                            Seleccione el número de invitados que asistirán
+                        </label>
+
+                        <select
+                            value={cantidad}
+                            onChange={handleCantidadChange}
+                            className="relative z-10 !font-[Amiri] text-xl w-full border-2 border-[#DDDDDD] p-2 focus:outline-none"
+                        >
+                            {Array.from({ length: maxInvitados }, (_, i) => i + 1).map(num => (
+                                <option key={num} value={num}>
+                                    {num}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
                 <div className="relative z-10 flex flex-col gap-3 mt-4">
                     {nombres.map((nombre, index) => (
                         <input
@@ -103,8 +115,8 @@ Confirmo mi asistencia a los 15 años de Susanna ✨
                 >
                     Enviar por WhatsApp
                 </button>
-                <img className="absolute opacity-30 -top-40 -left-20 z-1" src="/png/flowers4.png" alt="Flor" />
-                <img className="absolute opacity-30 -rotate-90 -bottom-70 -right-50" src="/png/flowers5.png" alt="Flor" />
+                <img className="absolute opacity-30 -top-40 -left-20 -z-10" src="/png/flowers4.png" alt="Flor" />
+                <img className="absolute opacity-30 -rotate-90 -bottom-70 -right-50 -z-10" src="/png/flowers5.png" alt="Flor" />
             </div>
         </div>
     );
