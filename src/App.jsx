@@ -4,7 +4,7 @@ import ConfirmarAsistencia from "./components/ConfirmarAsistencia.jsx";
 function App() {
 
   const params = new URLSearchParams(window.location.search);
-  const numInvitados = parseInt(params.get("invitados")) || 1;
+  const numInvitados = parseInt(params.get("invitados")) || 0;
   const fliaName = params.get("nombre");
 
   console.log("Número de invitados:", fliaName);
@@ -40,8 +40,8 @@ function App() {
             <img className="w-[140px] sm:w-[220px]" src="/png/leaves2.png" />
           </div>
           <div>
-            <p className="text-4xl sm:text-6xl text-center leading-[0.8]">Tenemos el honor de invitarle a la<br />
-              celebración tan especial</p>
+            <p className="text-4xl sm:text-6xl text-center leading-[0.8]">Tenemos el honor de invitarte a<br />
+              celebrar con nosotros los</p>
             <p className="text-5xl sm:text-7xl text-center text-[#215D2C] mt-5">15 años</p>
             <p className="text-4xl sm:text-6xl text-center">de nuestra querida hija</p>
           </div>
@@ -63,7 +63,7 @@ function App() {
             <div className="w-[400px] h-[200px] sm:w-[800px] sm:h-[400px] relative flex items-center justify-center">
               <h2 className="absolute text-[90px] sm:text-[160px] top-5 sm:top-15 z-10">20</h2>
               <h3 className="absolute text-[30px] sm:text-[60px] bottom-13 sm:bottom-25 z-10">Diciembre</h3>
-              <h3 className="absolute text-[30px] sm:text-[60px] left-10 sm:left-20 z-10">Sabado</h3>
+              <h3 className="absolute text-[30px] sm:text-[60px] left-10 sm:left-20 z-10">Sábado</h3>
               <h3 className="absolute text-[30px] sm:text-[60px] right-10 sm:right-20 z-10">7:00 p.m.</h3>
               <img className="absolute -right-15 top-1/3 w-[170px] sm:w-[320px] scale-x-[-1]" src="/png/divider.png" />
               <img className="absolute -left-15 top-1/3 w-[170px] sm:w-[320px]" src="/png/divider.png" />
@@ -77,7 +77,15 @@ function App() {
             <div className="relative flex items-center justify-center">
               <img className="absolute w-[60px] -left-5 top-18 sm:w-[120px] sm:-left-40 sm:top-30 rotate-90" src="/png/leaves4.png" alt="Hojas" />
               <img className="absolute w-[60px] -right-8 -top-3 sm:w-[120px] sm:-right-30 sm:top-0" src="/png/butterfly4.png" alt="Mariposa" />
-              <a href="https://maps.app.goo.gl/fN1JpNujNbnqCJQJ8" target="_blank" rel="noreferrer noopener" className="text-center text-4xl sm:text-[55px] my-10 leading-[0.8] sm:leading-none">Nos vemos en<br /> Club&nbsp; Xilon - Cra. 45 #18A-51<br /> Pasto, Nariño</a>
+              <div className="flex flex-col items-center text-center text-4xl sm:text-[55px] my-10 leading-[0.8] sm:leading-none">
+                <p>Nos vemos en<br /> Club&nbsp; Xilon - Cra. 45 #18A-51<br /> Pasto, Nariño</p>
+                <button
+                  onClick={() => window.open('https://maps.app.goo.gl/fN1JpNujNbnqCJQJ8', '_blank', 'noopener,noreferrer')}
+                  className="mt-6 px-8 py-3 text-2xl sm:text-4xl border border-[#215D2C] rounded-full hover:bg-[#215D2C] hover:text-white transition-colors"
+                >
+                  Mostrar en el mapa
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex justify-center gap-10 mt-20 sm:gap-30 sm:mt-20">
@@ -101,7 +109,13 @@ function App() {
             </div>
           </div>
           <div className='text-center mt-10 sm:mt-20'>
-            <p className='flex justify-center text-[40px] sm:text-[60px]'>Puedes llevar a&nbsp;<p className="underline">{numInvitados}</p>&nbsp;{numInvitados === 1 ? "invitado" : "invitados"}</p>
+            <div className='text-1xl sm:text-3xl font-inter font-medium leading-tight'>
+              {numInvitados === 0
+                ? "Hemos reservado (1) cupo para ti, con mucho cariño"
+                : numInvitados === 1
+                  ? "Hemos reservado (1) cupo para ti y (1) cupo para tu acompañante"
+                  : `Hemos reservado (1) cupo para ti y (${numInvitados}) cupos para tus acompañantes`}
+            </div>
           </div>
           <div className="flex justify-center mb-20 mt-10 sm:mb-50">
             <ConfirmarAsistencia numInvitados={numInvitados} fliaName={fliaName} />
