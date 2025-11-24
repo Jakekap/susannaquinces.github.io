@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 export default function Tarjeta({ onClose }) {
     const [nombrePrincipal, setNombrePrincipal] = useState("");
     const [cantidad, setCantidad] = useState(1);
-    const [nombres, setNombres] = useState([""]);
 
     const [maxInvitados, setMaxInvitados] = useState(5);
 
@@ -13,7 +12,7 @@ export default function Tarjeta({ onClose }) {
         const nombreParam = params.get("nombre");
         if (nombreParam) setNombrePrincipal(nombreParam);
 
-        const maxParam = parseInt(params.get("maxinvitados"));
+        const maxParam = parseInt(params.get("invitados"));
         if (!isNaN(maxParam) && maxParam > 0) {
             setMaxInvitados(maxParam);
             setCantidad(1);
@@ -48,11 +47,6 @@ export default function Tarjeta({ onClose }) {
     };
 
     const handleEnviar = () => {
-        if (nombres.some((n) => n.trim() === "")) {
-            alert("Por favor completa todos los nombres antes de enviar 🙏");
-            return;
-        }
-
         const url = `https://wa.me/${numero}?text=${generarMensaje()}`;
         window.open(url, "_blank");
 

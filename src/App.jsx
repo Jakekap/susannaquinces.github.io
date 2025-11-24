@@ -1,9 +1,13 @@
-import { useState } from "react";
 import ConfirmarAsistencia from "./components/ConfirmarAsistencia.jsx";
 
-function App() {
-  const [mostrarCard, setMostrarCard] = useState(false);
 
+function App() {
+
+  const params = new URLSearchParams(window.location.search);
+  const numInvitados = parseInt(params.get("invitados")) || 1;
+  const fliaName = params.get("nombre");
+
+  console.log("Número de invitados:", fliaName);
   return (
     <>
       <div className="">
@@ -96,8 +100,11 @@ function App() {
               <img className="absolute -right-5 top-5 w-[270px] sm:right-0 sm:top-0 sm:w-[450px] opacity-30" src="/png/flowers7.png" alt="Flor" />
             </div>
           </div>
+          <div className='text-center mt-10 sm:mt-20'>
+            <p className='flex justify-center text-[40px] sm:text-[60px]'>Puedes llevar a&nbsp;<p className="underline">{numInvitados}</p>&nbsp;{numInvitados === 1 ? "invitado" : "invitados"}</p>
+          </div>
           <div className="flex justify-center mb-20 mt-10 sm:mb-50">
-            <ConfirmarAsistencia />
+            <ConfirmarAsistencia numInvitados={numInvitados} fliaName={fliaName} />
           </div>
           <div className="absolute w-[150px] left-0 bottom-0 sm:w-[320px] sm:left-0 sm:bottom-0">
             <img className="object-cover" src="/png/leaves5.png" />
