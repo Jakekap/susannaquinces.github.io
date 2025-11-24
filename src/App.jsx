@@ -32,9 +32,15 @@ function App() {
               <img className="absolute w-[250px] sm:w-[480px] -right-32 top-230 sm:-right-64 sm:top-350 opacity-70" src="/png/flowers3.png" alt="Ramo de flores" />
             </div>
           </div>
-          <div>
-            <p className="text-4xl sm:text-7xl text-center">Padres</p>
-            <p className="text-4xl sm:text-7xl text-center text-[#215D2C]">Henry Andrade & &nbsp;Paola Peña</p>
+          <div className="mt-4 sm:mt-8 mb-10 sm:mb-14 space-y-1 sm:space-y-2">
+            <p className="text-3xl sm:text-6xl text-center">Entre luces y sueños, </p>
+            <p className="text-3xl sm:text-6xl text-center">hoy florece mi niñez en primavera.</p>
+            <p className="text-3xl sm:text-6xl text-center">Acompáñame a celebrar estos 15 años</p>
+            <p className="text-3xl sm:text-6xl text-center">que guardan mi historia y abren mis alas.</p>
+          </div>
+          <div className="flex flex-col items-center my-10 sm:my-16">
+            <p className="text-4xl sm:text-7xl text-center mb-2 sm:mb-4">Invitan mis padres</p>
+            <p className="text-4xl sm:text-7xl text-center text-[#215D2C]">Henry &nbsp;&&nbsp; Paola</p>
           </div>
           <div className="flex justify-center my-5 sm:my-10">
             <img className="w-[140px] sm:w-[220px]" src="/png/leaves2.png" />
@@ -118,7 +124,7 @@ function App() {
             </div>
           </div>
           <div className="flex justify-center mb-20 mt-10 sm:mb-50">
-            <ConfirmarAsistencia numInvitados={numInvitados} fliaName={fliaName} />
+            <ConfirmarAsistencia fliaName={fliaName} />
           </div>
           <div className="absolute w-[150px] left-0 bottom-0 sm:w-[320px] sm:left-0 sm:bottom-0">
             <img className="object-cover" src="/png/leaves5.png" />

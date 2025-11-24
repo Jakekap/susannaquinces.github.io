@@ -4,8 +4,7 @@ export default function ConfirmarAsistencia({ numInvitados = 1, fliaName }) {
     const numero = "573144450651";
 
     const generarMensaje = () => {
-        const texto = `Por parte de la Flia. ${fliaName || "invitada"} Confirmo mi asistencia a los 15 años de Susanna ✨
-        👥 En total, serémos: ${numInvitados} ${numInvitados === 1 ? "invitado" : "invitados"}`;
+        const texto = `Por parte de la Flia. ${fliaName || "invitada"} Confirmo mi asistencia a los 15 años de Susanna ✨`;
         return texto.replace(/\n/g, "%0A").replace(/ /g, "%20");
     };
 
