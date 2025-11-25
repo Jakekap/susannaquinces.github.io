@@ -87,7 +87,7 @@ function App() {
                 <p>Nos vemos en<br /> Club&nbsp; Xilon - Cra. 45 #18A-51<br /> Pasto, Nariño</p>
                 <button
                   onClick={() => window.open('https://maps.app.goo.gl/fN1JpNujNbnqCJQJ8', '_blank', 'noopener,noreferrer')}
-                  className="mt-6 px-8 py-3 text-2xl sm:text-4xl border border-[#215D2C] rounded-full hover:bg-[#215D2C] hover:text-white transition-colors"
+                  className="cursor-pointer font-[Amiri] sm:px-8 mt-6 px-4 sm:py-3 py-2 text-2xl sm:text-4xl border border-[#215D2C] rounded-full hover:bg-[#215D2C] hover:text-white transition-colors"
                 >
                   Mostrar en el mapa
                 </button>
@@ -115,12 +115,12 @@ function App() {
             </div>
           </div>
           <div className='text-center mt-10 sm:mt-20'>
-            <div className='text-1xl sm:text-3xl font-inter font-medium leading-tight'>
+            <div className='text-1xl sm:text-3xl font-[Amiri] font-medium leading-tight whitespace-pre-line'>
               {numInvitados === 0
-                ? "Hemos reservado (1) cupo para ti, con mucho cariño"
+                ? "Hemos reservado 1 cupo para ti, \nCon mucho cariño"
                 : numInvitados === 1
-                  ? "Hemos reservado (1) cupo para ti y (1) cupo para tu acompañante"
-                  : `Hemos reservado (1) cupo para ti y (${numInvitados}) cupos para tus acompañantes`}
+                  ? "Hemos reservado 1 cupo para ti\n Y 1 cupo para tu acompañante"
+                  : `Hemos reservado 1 cupo para ti\n Y ${numInvitados} cupos para tus acompañantes`}
             </div>
           </div>
           <div className="flex justify-center mb-20 mt-10 sm:mb-50">
